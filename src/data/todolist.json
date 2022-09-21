@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Learn NextJS",
+    "state": "In progress"
+  },
+  {
+    "id": 2,
+    "title": "Learn Docker",
+    "state": "In progress"
+  },
+  {
+    "id": 3,
+    "title": "Learn Typescript",
+    "state": "In progress"
+  },
+  {
+    "id": 4,
+    "title": "Perform the Sogeti test",
+    "state": "Done"
+  },
+  {
+    "id": 5,
+    "title": "Lear, Tailwindcss",
+    "state": "In progress"
+  }
+]
