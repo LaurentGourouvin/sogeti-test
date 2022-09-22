@@ -2,26 +2,31 @@
   {
     "id": 1,
     "title": "Learn NextJS",
-    "state": false
+    "state": false,
+    "description": "Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed."
   },
   {
     "id": 2,
     "title": "Learn Docker",
-    "state": false
+    "state": false,
+    "description": "Docker takes away repetitive, mundane configuration tasks and is used throughout the development lifecycle for fast, easy and portable application development – desktop and cloud. Docker’s comprehensive end to end platform includes UIs, CLIs, APIs and security that are engineered to work together across the entire application delivery lifecycle."
   },
   {
     "id": 3,
     "title": "Learn Typescript",
-    "state": false
+    "state": false,
+    "description": "TypeScript is a free and open source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for the development of large applications and transpiles to JavaScript.[5] As it is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs."
   },
   {
     "id": 4,
     "title": "Perform the Sogeti test",
-    "state": true
+    "state": true,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi debitis distinctio velit obcaecati ipsam! Ratione assumenda earum sunt inventore!"
   },
   {
     "id": 5,
     "title": "Learn Tailwindcss",
-    "state": false
+    "state": false,
+    "description": "Tailwind CSS is an open source CSS framework. The main feature of this library is that, unlike other CSS frameworks like Bootstrap, it does not provide a series of predefined classes for elements such as buttons or tables. Instead, it creates a list of utility CSS classes that can be used to style each element by mixing and matching."
   }
 ]
