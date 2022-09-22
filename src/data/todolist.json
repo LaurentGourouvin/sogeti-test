@@ -2,26 +2,26 @@
   {
     "id": 1,
     "title": "Learn NextJS",
-    "state": "In progress"
+    "state": false
   },
   {
     "id": 2,
     "title": "Learn Docker",
-    "state": "In progress"
+    "state": false
   },
   {
     "id": 3,
     "title": "Learn Typescript",
-    "state": "In progress"
+    "state": false
   },
   {
     "id": 4,
     "title": "Perform the Sogeti test",
-    "state": "Done"
+    "state": true
   },
   {
     "id": 5,
-    "title": "Lear, Tailwindcss",
-    "state": "In progress"
+    "title": "Learn Tailwindcss",
+    "state": false
   }
 ]
