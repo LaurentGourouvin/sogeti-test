@@ -1,14 +1,18 @@
-import { updateTodoList } from "../../utils/utils";
+// Import node module
 import { Link } from "react-router-dom";
 
-export const Todo = ({ setTodosList, data, id, title, state }) => {
+// Import own module
+import { updateStateTodoList } from "../../utils/utils";
+
+export const Todo = ({ setTodosList, todosList, id, title, state }) => {
+  // Handler
   const handleChangeCheck = () => {
-    const updateList = updateTodoList(data, id);
+    const updateList = updateStateTodoList(todosList, id);
     setTodosList(updateList);
   };
 
   return (
-    <article className="flex flex-row gap-3 items-center">
+    <article className="flex flex-row gap-3 items-center justify-between">
       <h2 className={`${state && "line-through italic bg-red-100"} p-2 m-1`}>
         <Link to={`todo/${id}`}>{title}</Link>
       </h2>

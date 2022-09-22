@@ -1,13 +1,12 @@
-import dataTodoList from "../data/todolist.json";
 import { useEffect, useState } from "react";
 
-export const useGetTodoById = (id) => {
+export const useGetTodoById = (id, todosList) => {
   const [todo, setTodo] = useState({});
 
   useEffect(() => {
-    const getTodo = dataTodoList.filter((oneTodo) => oneTodo.id === Number(id));
+    const getTodo = todosList.filter((oneTodo) => oneTodo.id === Number(id));
     setTodo(...getTodo);
-  }, [id]);
+  }, [todosList, id]);
 
   return todo;
 };
