@@ -15,7 +15,7 @@ export const sortTodoList = (todostList) => {
   return sortedTodosList;
 };
 
-// Function to update the Todos
+// Function to update the state of the Todo
 export const updateStateTodoList = (todostList, idTodoToUpdate) => {
   const { id, title, state, createdAt } = todostList.filter(
     (todo) => todo.id === idTodoToUpdate
@@ -50,7 +50,28 @@ export const addDate = (todolist) => {
 
 // Delete a Todo
 export const deleteTodo = (todolist, id) => {
-  console.log("ID todo for deleting:", id);
   const todosListFiltered = todolist.filter((todo) => todo.id !== Number(id));
   return todosListFiltered;
+};
+
+// Update a Todo
+export const updateTodo = (todolist, id, updatedTodo) => {
+  console.log("fonction updateTodo");
+  // picking the last version of the current todo
+  const oldVersionTodo = todolist.filter((todo) => todo.id === Number(id))[0];
+  // console.log("Ancienne version de la todo:", oldVersionTodo);
+
+  // deleted the last version of the current todo
+  const todosListWithoutCurrentTodo = deleteTodo(todolist, id);
+  // console.log("liste des todos sans la todo", todosListWithoutCurrentTodo);
+
+  // update the old todo
+  const newVersionTodo = { ...oldVersionTodo, ...updatedTodo };
+  // console.log("nouvelle version de la todo", newVersionTodo);
+
+  // push the new todo on list
+  todosListWithoutCurrentTodo.push(newVersionTodo);
+  // console.log("liste avec la nouvelle todo", todosListWithoutCurrentTodo);
+
+  return todosListWithoutCurrentTodo;
 };

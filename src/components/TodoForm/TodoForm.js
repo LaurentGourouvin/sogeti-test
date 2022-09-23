@@ -1,6 +1,7 @@
 // Import node_module
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // Import own module
 import { incrementId } from "../../utils/utils";
@@ -13,7 +14,9 @@ export const TodoForm = () => {
     state: false,
   });
 
+  // Hooks
   const [todosList, setTodosList] = useOutletContext();
+  const navigate = useNavigate();
 
   //Handlers
   const handleSubmit = (e) => {
@@ -25,9 +28,28 @@ export const TodoForm = () => {
       createdAt: Date.parse(new Date()),
     };
 
-    // add new todo to my todosList (top of the list)
-    setTodosList((prevState) => [newTodoWithId, ...prevState]);
-    handleReset();
+    Swal.fire({
+      title: "Create a new todo",
+      text: `Do you want to create "${newTodo.title}" ?`,
+      icon: "question",
+      confirmButtonText: "Create",
+      confirmButtonColor: "#22c55e",
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "#ef4444",
+      showCancelButton: true,
+    }).then((action) => {
+      if (action.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          text: "Done !",
+          confirmButtonColor: "#22c55e",
+        });
+        // add new todo to my todosList (top of the list)
+        setTodosList((prevState) => [newTodoWithId, ...prevState]);
+        handleReset();
+        navigate(`/todo/${newTodoWithId.id}`);
+      }
+    });
   };
 
   const handleReset = (e) => {
@@ -83,6 +105,7 @@ export const TodoForm = () => {
             Save
           </button>
           <button
+            type="reset"
             className="p-2 rounded bg-red-500 text-white"
             onClick={handleReset}
           >
