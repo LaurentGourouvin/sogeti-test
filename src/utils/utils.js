@@ -47,3 +47,10 @@ export const addDate = (todolist) => {
 
   return addDateToTodos;
 };
+
+// Delete a Todo
+export const deleteTodo = (todolist, id) => {
+  console.log("ID todo for deleting:", id);
+  const todosListFiltered = todolist.filter((todo) => todo.id !== Number(id));
+  return todosListFiltered;
+};

@@ -1,19 +1,53 @@
 // Import node_module
-import { useOutletContext, useParams, Link } from "react-router-dom";
+import {
+  useOutletContext,
+  useParams,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+
+import Swal from "sweetalert2";
 
 // Import own module
 import { useGetTodoById } from "../../hooks/useGetTodoById";
 import { Edit } from "../elements/icons/Edit";
 import { Back } from "../elements/icons/Back";
 import { Trash } from "../elements/icons/Trash";
+import { deleteTodo } from "../../utils/utils";
 
 export const TodoDetails = () => {
   // State
-  const [todosList] = useOutletContext();
+  const [todosList, setTodosList] = useOutletContext();
 
   // Hooks
   const { todoId } = useParams();
   const todo = useGetTodoById(todoId, todosList);
+  const navigate = useNavigate();
+
+  // Handlers
+  const handleDeleteTodo = () => {
+    const filteredTodosList = deleteTodo(todosList, Number(todoId));
+    Swal.fire({
+      title: `Delete ${todo.title}`,
+      text: "Do you want to continue ?",
+      icon: "question",
+      confirmButtonText: "Delete",
+      confirmButtonColor: "#ef4444",
+      cancelButtonText: "No",
+      cancelButtonColor: "#60a5fa",
+      showCancelButton: true,
+    }).then((action) => {
+      if (action.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          text: "Deleted Sucess",
+          confirmButtonColor: "#22c55e",
+        });
+        navigate("/");
+        setTodosList(filteredTodosList);
+      }
+    });
+  };
 
   return (
     <section
@@ -25,7 +59,7 @@ export const TodoDetails = () => {
           <span className="hover:text-green-500">
             <Edit />
           </span>
-          <span className="hover:text-red-600">
+          <span className="hover:text-red-600" onClick={handleDeleteTodo}>
             <Trash />
           </span>
           <Link to="/">
