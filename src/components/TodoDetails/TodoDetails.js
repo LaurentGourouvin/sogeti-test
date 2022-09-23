@@ -90,6 +90,7 @@ export const TodoDetails = () => {
           updateTodo
         );
         setTodosList(sortTodoList(todosListUpdated));
+        setEditTodo(false);
       }
     });
   };
