@@ -16,7 +16,6 @@ function App() {
 
   // Hooks
   useEffect(() => {
-    console.log("montage du composant");
     if (todosList.length === 0) {
       const todosWithDate = addDate(dataTodoList);
       setTodosList(sortTodoList(todosWithDate));
@@ -45,9 +44,7 @@ function App() {
       </aside>
       <main className="w-1/2 h-min-screen mx-auto flex flex-col gap-4">
         <section className="py-4">
-          <h2 className="font-bold text-5xl py-2">
-            Test de recrutement Sogeti
-          </h2>
+          <h2 className="font-bold text-5xl py-2">Test de recrutement</h2>
           <h3 className="font-semi text-xl py-2">
             <span className="text-green-500 italic">Gourouvin Laurent</span>
           </h3>
